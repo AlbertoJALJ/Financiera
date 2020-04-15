@@ -1,0 +1,13 @@
+<form method="POST" action="/clientes/documento/{{id}}" enctype="multipart/form-data">
+  <div class="row justify-content-center">
+    <select class="selectpicker col-sm-4" id="tipo_documento" data-style="btn btn-danger btn-round" name="tipo">
+      <option class="align-items-center" disabled selected>Single Option</option>
+      <option class="align-items-center" value="INE">INE</option>
+      <option class="align-items-center" value="ActaNacimiento">ACTA DE NACIMIENTO</option>
+      <option class="align-items-center" value="ComprobanteDomicilio">COMPROBANTE DE DOMICILIO</option>
+      <option class="align-items-center" value="rfc">RFC</option>
+    </select>
+    <input type="file" name="Documento" id="lel">
+  <button type="submit"> Enviar </button>
+  </div>
+</form>
