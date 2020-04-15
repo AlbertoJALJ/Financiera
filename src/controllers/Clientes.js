@@ -27,19 +27,25 @@ Clientes.GetSubirDocumentos = async (req, res) => {
 }
 Clientes.PostSubirDocumentos = async (req, res) => {
     const cliente = await Cliente.findById(req.params.id)
-    console.log(cliente)
     const nombreCompleto = `${cliente.Nombre}${cliente.Apellido_paterno}${cliente.Apellido_materno}`
+    const randomNumber = Math.round(Math.random() * 1E9)
     const storage = multer.diskStorage({
-        destination: function (req, file, cb) {
-          cb(null, 'uploads/')
-        },
-        filename: function (req, file, cb) {
-          cb(null, `${req.body.tipo}-${nombreCompleto}-${Math.round(Math.random() * 1E9)}.pdf`.replace(/ /g, ""))
-        }
+        destination : ( req, file, cb ) => cb(null, 'uploads/'),
+        filename: ( req, file, cb ) => cb(null, `${req.body.tipo}-${nombreCompleto}-${randomNumber}.pdf`.replace(/ /g, ""))
     })
     const upload = multer({ storage: storage }).single('Documento')
-    upload(req, res, function (err) {
-        (err instanceof multer.MulterError) ? console.log(err) : console.log('Todo ok')
+    upload ( req, res, (err) =>{
+        const NombreDocumento = `${req.body.tipo}-${nombreCompleto}-${randomNumber}.pdf`.replace(/ /g, "")
+        const Documento = {
+            Nombre : NombreDocumento,
+            Tipo: req.body.tipo,
+            URL : `${process.cwd()}/uploads/${NombreDocumento}`
+        }
+        if (err instanceof multer.MulterError) {
+            console.log(err)
+        }
+        cliente.Documento.push({...Documento})
+        cliente.save()
     })
 }
 Clientes.CheckIfDocExists = async (req,res) => {//pendiente comprobar si existen todos los documentos
