@@ -9,6 +9,7 @@ const ClienteSchema = new Schema({
   Curp : String,
   RFC : String,
   Email : String,
+  Telefono : Number,
   Direccion : {
     Direccion_completa : String,
     Coordenadas : String
@@ -25,14 +26,16 @@ const ClienteSchema = new Schema({
   }],
   Prestamo : {
     Status : String,
+    Monto_prestamo : Number,
+    Monto_interes : Number,
     Monto_total : Number,
-    Monto_total_intereses : Number,
+    Monto_restante : Number,
     Creacion : String,
     Duracion : Number,
-    Interés : Number,
+    Interes : Number,
+    Pago_previsto: Number,
     Pagos : [{
       Fecha : String,
-      Numero : String,
       Monto : String,
     }]
   }

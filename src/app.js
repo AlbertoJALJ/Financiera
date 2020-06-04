@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var indexRouter = require('./routes');
 var usersRouter = require('./routes/users');
-
+var session = require('express-session');
 var app = express();
 
 // view engine setup
@@ -20,6 +20,11 @@ app.engine('.hbs', exphbs({
 app.set('view engine', 'hbs');
 
 //app.use(logger('dev'));
+app.use( session( {
+  /* Aquí irían los atributos de nuestra sesión, como claves,
+   * cómo se guarda, tiempo de expiración, etc...
+   */
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());

@@ -1,0 +1,162 @@
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-profile">
+                    <div class="card-avatar">
+                        <a href="#pablo">
+                            <img class="img"
+                                src="https://cdn3.f-cdn.com/contestentries/1376995/30494909/5b566bc71d308_thumb900.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                        <h4 class="card-title">{{cliente.Nombre}}</h4>
+                        <h6 class="card-title">{{cliente.Apellido_paterno}} {{cliente.Apellido_materno}}</h6>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I
+                            love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <a href="#pablo" class="btn btn-rose btn-round">Follow</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-icon card-header-rose">
+                        <div class="card-icon">
+                            <i class="material-icons">perm_identity</i>
+                        </div>
+                        <h4 class="card-title">Información del cliente</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/clientes/profile/{{cliente/id}}">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Correo electrónico</label>
+                                        <input value="{{cliente.Email}}" name="Email" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Teléfono</label>
+                                        <input value="{{cliente.Telefono}}" name="Telefono" type="number" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Dirección</label>
+                                        <input value="{{cliente.Direccion.Direccion_completa}}" name="Direccion_completa" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Estado del préstamo</label>
+                                        <input value="{{cliente.Prestamo.Status}}" name="Status" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Monto del préstamo</label>
+                                        <input value="{{cliente.Prestamo.Monto_total}}" name="Monto_total" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Porcentaje de interés</label>
+                                        <input value="{{cliente.Prestamo.Interes}}" name="Interes" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Inicio del préstamo</label>
+                                        <input value="{{cliente.Prestamo.Creacion}} " name="Creacion" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Plazo de pago</label>
+                                        <input value="{{cliente.Prestamo.Duracion}}" name="Duracion" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Pago mensual </label>
+                                        <input value="{{cliente.Prestamo.Pago_previsto}}" name="Pago_previsto" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Monto restante</label>
+                                        <input value="{{cliente.Prestamo.Monto_restante}}" name="Monto_restante" type="text"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-rose pull-right">Update Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-icon card-header-rose">
+                        <div class="card-icon">
+                            <i class="material-icons">perm_identity</i>
+                        </div>
+                        <h4 class="card-title">Lista de pagos realizados</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead class="">
+                                        <th>
+                                            Número
+                                        </th>
+                                        <th>
+                                            Fecha
+                                        </th>
+                                        <th>
+                                            Monto
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        {{#each pagos}}
+                                        <tr>
+                                            <td>
+                                                {{inc @index}}
+                                            </td>
+                                            <td>
+                                                {{Fecha}}
+                                            </td>
+                                            <td>
+                                                {{Monto}}
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
