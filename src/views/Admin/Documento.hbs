@@ -1,13 +1,92 @@
-<form method="POST" action="/clientes/documento/{{id}}" enctype="multipart/form-data">
-  <div class="row justify-content-center">
-        <select class="selectpicker col-sm-4" id="tipo_documento" data-style="btn btn-danger btn-round" name="tipo">
-          <option class="align-items-center" disabled selected>Single Option</option>
-          <option class="align-items-center" value="INE">INE</option>
-          <option class="align-items-center" value="Acta de nacimiento">ACTA DE NACIMIENTO</option>
-          <option class="align-items-center" value="Comprobante de domicilio">COMPROBANTE DE DOMICILIO</option>
-          <option class="align-items-center" value="RFC">RFC</option>
-        </select>
-        <input type="file" name="Documento" id="lel">
-  <button type="submit"> Enviar </button>
-  </div>
-</form>
+{{#if mensaje}}
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        <strong>{{mensaje}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div><br>
+{{/if}}
+<div class="col-md-10 ml-auto mr-auto">
+    <div class="card card-nav-tabs text-center">
+        <div class="card-header card-header-danger">
+            <h3>Lista de documentos</h3>
+        </div>
+        <div class="card-body">
+            <br>
+            <div class="row">
+                <div class="col-md-10 ml-auto mr-auto table-responsive">
+                    {{#if documentos}}
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>Documento</th>
+                                <th class="">Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{#each documentos}}
+                                <tr>
+                                    <td>{{inc @index}}</td>
+                                    <td>{{Tipo}}</td>
+                                    <td class="td-actions">
+                                        <a type="button" target="_blank" href="/uploads/Documentos/{{Nombre}}"
+                                           class="btn btn-success">
+                                            Ver
+                                            <i class="material-icons">visibility</i>
+                                        </a>
+                                        <a type="button" href="/admin/clientes/documentos/eliminar/{{../cliente}}/{{id}}" rel="tooltip" class="btn btn-danger text-white" >Eliminar
+                                            <i class="material-icons">close</i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                            </tbody>
+                        </table>
+                    {{else}}
+                        <h3 class="text-capitalize text-danger">Sin documentos registrados</h3>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-md-6 mr-auto ml-auto">
+                <div class="card">
+                    <div class="card-header card-header-icon card-header-rose">
+                        <div class="card-icon">
+                            <i class="material-icons">add_circle_outline</i>
+                        </div>
+                        <h3 class="card-title text-center ">Subida de documentos</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/admin/clientes/documento/{{cliente}}" enctype="multipart/form-data">
+                            <div class="row justify-content-center">
+                                <select required class="selectpicker " id="tipo_documento" data-style="btn btn-danger btn-round" name="tipo">
+                                    <option disabled class="align-items-center ">Tipo de documento</option>
+                                    {{#unless docs.ine}}
+                                        <option class="align-items-center" value="INE">INE</option>
+                                    {{/unless}}
+                                    {{#unless docs.acta}}
+                                        <option class="align-items-center" value="Acta de nacimiento">ACTA DE NACIMIENTO</option>
+                                    {{/unless}}
+                                    {{#unless docs.cdomicilio}}
+                                        <option class="align-items-center" value="Comprobante de domicilio">COMPROBANTE DE DOMICILIO</option>
+                                    {{/unless}}
+                                    {{#unless docs.rfc}}
+                                        <option class="align-items-center" value="RFC">RFC</option>
+                                    {{/unless}}
+                                    {{#unless docs.garantia}}
+                                        <option class="align-items-center" value="Garantia">Garantia</option>
+                                    {{/unless}}
+                                </select>
+                                <p class="text-center">Sólo archivos en formato <strong>PDF</strong>  y con un tamaño máximo de: <strong>5MB</strong></p>
+                                <input accept="application/pdf" required type="file" name="Documento" id="lel" >
+                                <button class="btn btn-danger btn-sm" type="submit" data-toggle="tooltip" data-placement="top" title="SOLO SE PERMITE UN ARCHIVO POR TIPO DE DOCUMENTO"> Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

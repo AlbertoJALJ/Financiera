@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+            <div class="card">
+                <div class="card-header card-header-icon card-header-danger">
+                    <div class="card-icon">
+                        <i class="material-icons">perm_identity</i>
+                    </div>
+                    <h4 class="card-title">Datos del cliente</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/admin/create/cliente/">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Nombre</label>
+                                    <input required name="Nombre" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Apellido paterno </label>
+                                    <input required name="Apellido_paterno" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Apellido materno</label>
+                                    <input required name="Apellido_materno" type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="bmd">Fecha de nacimiento</label>
+                                    <input required id="datetimepicker-input" name="Fecha_nacimiento" type="text" class="form-control datepicker">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Curp</label>
+                                    <input required name="Curp" type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">RFC</label>
+                                    <input name="RFC" type="text"
+                                           class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Correo electrónico</label>
+                                    <input required name="Email" type="email" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="bmd-label-floating">Teléfono</label>
+                                    <input required  name="Telefono" type="tel" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <br >
+                        <div class="text-center content-center">
+                            <button type="submit" class="btn btn-danger">Continuar</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

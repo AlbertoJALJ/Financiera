@@ -1,11 +1,14 @@
 function isAdmin(req,res,next) {
+  console.log(req.user)
   if (req.user && req.user.isAdmin) {
+    req.isAdmin = true
     next()
   } else res.redirect('/login')
 }
-function isHuesped(req,res,next) {
+function isUser(req,res,next) {
   if (req.user) {
+    req.isUser = true
     next();
   } else res.redirect('/login')
 }
-module.exports = {isAdmin,isHuesped}
+module.exports = {isAdmin,isUser}

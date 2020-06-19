@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"/>
+    <link rel="stylesheet" href="/css/client.css">
+    <title>CORP JG AGUILAR</title>
+</head>
+<body>
+
+<header>
+    <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                    <h4 class="text-white">¿Quienes somos?</h4>
+                    <p class="text-muted">Financiera CORP JG AGUILAR S.A. DE C.V.</p>
+                    <p class="text-muted">Nos encontramos en Avenida 5 de mayo, Centro #20, Salina Cruz, Oaxaca</p>
+                    <p class="text-muted">CP:70760</p>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                    <h4 class="text-white">Contacto</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="tel:9711459980" class="text-white">Teléfono</a></li>
+                        <li><a href="#" class="text-white">Like en Facebook</a></li>
+                        <li><a href="#" class="text-white">Correo</a></li>
+                        <li><a href="/logout" class="text-white"><strong>CERRAR SESIÓN</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="navbarxd" class="navbar  navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+            <a href="/client/" class="navbar-brand d-flex align-items-center">
+                <i class="material-icons">
+                    account_balance
+                </i>
+                <strong>Corp JH Aguilar</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main role="main">
+    <section class="jumbotron text-center ">
+        <div class="container">
+            <h1 class="jumbotron-heading">Bienvenido</h1>
+            <p class="lead text-muted">{{cliente.Nombre}} {{cliente.Apellido_paterno}} {{cliente.Apellido_materno}}</p>
+            <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=medium&timezone=America%2FMexico_City" width="100%" height="115" frameborder="0" seamless></iframe>
+        </div>
+    </section>
+
+    <div class="col-md-12">
+        {{>perfil}}
+    </div>
+</main>
+
+<footer class="text-muted ">
+    <div class="container">
+        <p class="float-right">
+            <a href="#navbarxd">Ir arriba</a>
+        </p>
+        <p class="text-center">Avenida 5 de mayo, Centro #20, Salina Cruz, Oaxaca</p>
+        <p class="text-center"><strong>9711459980</strong></p>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

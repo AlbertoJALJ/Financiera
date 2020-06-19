@@ -1,91 +1,107 @@
-<div class="card ">
-    <div class="card-header card-header-rose card-header-icon">
-        <div class="card-icon">
-            <i class="material-icons">mail_outline</i>
-        </div>
-        <h4 class="card-title">Stacked Form</h4>
-    </div>
-    <div class="card-body ">
-        <div class="form-group">
-            <label for="exampleEmail" class="bmd-label-floating">Monto</label>
-            <input type="number" required  class="form-control" id="monto_prestamo">
-        </div>
-        <div class="form-group">
-            <label for="examplePass" class="bmd-label-floating">Duración (meses)</label>
-            <input type="number"  class="form-control" id="duracion">
-        </div>
-        <div class="form-group">
-            <label for="examplePass" class="bmd-label-floating">Porcentaje de interés</label>
-            <input type="number" class="form-control" id="interes">
-        </div>
-    </div>
-    <div class="card-footer ">
-        <button type="button" id="boton_modal" class="btn btn-fill btn-rose" data-toggle="modal"
-                data-target="#exampleModal">
-            Launch demo modal
-        </button>
-    </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form method="POST" action="/clientes/prestamo/nuevo/{{cliente.id}}">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 ml-auto mr-auto">
+            <div class="card">
+                <div class="card-header card-header-icon card-header-danger">
+                    <div class="card-icon">
+                        <i class="material-icons">perm_identity</i>
+                    </div>
+                    <h4 class="card-title">Datos del cliente</h4>
                 </div>
-                <div class="modal-body">
-
-                    <div class="row">
-                        <label class="col-md-3 col-form-label">Monto</label>
-                        <div class="col-md-9">
-                            <div class="form-group has-default">
-                                <input readonly type="number" name="Monto_prestamo" id="monto_prestamo_modal" class="form-control">
+                <div class="card-body">
+                    <form method="post" action="/admin/create/cliente/">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="exampleEmail" class="bmd-label-floating">Monto</label>
+                                    <input type="number" required  class="form-control" id="monto_prestamo">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="examplePass" class="bmd-label-floating">Duración (meses)</label>
+                                    <input type="number"  class="form-control" id="duracion">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="examplePass" class="bmd-label-floating">Porcentaje de interés</label>
+                                    <input type="number" class="form-control" id="interes">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <label class="col-md-3 col-form-label">Duración (meses)</label>
-                        <div class="col-md-9">
-                            <div class="form-group has-default">
-                                <input readonly type="number" name="Duracion" id="duracion_modal" class="form-control">
+                        <br >
+                            <div class="text-center content-center">
+                                <button type="button" id="boton_modal" class="btn btn-fill btn-danger" data-toggle="modal"
+                                        data-target="#exampleModal">
+                                    Generar Préstamo
+                                </button>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label class="col-md-3 col-form-label">Interés %</label>
-                        <div class="col-md-9">
-                            <div class="form-group has-default">
-                                <input readonly type="number" name="Interes" id="interes_modal" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label class="col-md-3 col-form-label">Monto total</label>
-                        <div class="col-md-9">
-                            <div class="form-group has-default">
-                                <input readonly type="number" name="Monto_total" id="monto_total_modal" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <label class="col-md-3 col-form-label">Monto de pago previsto</label>
-                        <div class="col-md-9">
-                            <div class="form-group">
-                                <input readonly type="number" name="Pago_previsto" id="monto_previsto_modal" class="form-control">
-                                <input id="Monto_interes" name="Monto_interes" type="hidden" value="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form method="POST" action="/Admin/prestamo/nuevo/{{cliente.id}}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Información de pago</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    <i class="material-icons">clear</i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <label class="col-md-3 col-form-label">Monto</label>
+                    <div class="col-md-9">
+                        <div class="form-group has-default">
+                            <input readonly type="number" name="Monto_prestamo" id="monto_prestamo_modal" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-3 col-form-label">Duración (meses)</label>
+                    <div class="col-md-9">
+                        <div class="form-group has-default">
+                            <input readonly type="number" name="Duracion" id="duracion_modal" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-3 col-form-label">Interés %</label>
+                    <div class="col-md-9">
+                        <div class="form-group has-default">
+                            <input readonly type="number" name="Interes" id="interes_modal" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-3 col-form-label">Monto total</label>
+                    <div class="col-md-9">
+                        <div class="form-group has-default">
+                            <input readonly type="number" name="Monto_total" id="monto_total_modal" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-3 col-form-label">Monto de pago previsto</label>
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <input readonly type="number" name="Pago_previsto" id="monto_previsto_modal" class="form-control">
+                            <input id="Monto_interes" name="Monto_interes" type="hidden" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Confirmar</button>
+                <button type="button" class="btn btn-danger btn-link" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
     </form>
 </div>

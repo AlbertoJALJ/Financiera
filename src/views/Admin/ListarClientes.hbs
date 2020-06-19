@@ -1,52 +1,27 @@
-<div class= "card">
-    <div class="text-center">
-        <h3 class="card-header class-header-primary"></h3>
-    </div> 
-    <table class="table">
-        <thead class="text-center">
-            <tr>
-                <th>Nombre Completo</th>
-                <th>Fecha de Ingreso</th>
-                <th>Fecha de Salida</th>
-                <th>Nacionalidad</th>
-                <th class="text-right">Acciones</th>
-            </tr>
-        </thead>
-        {{#each clientes}}
-        <tbody>
-            <tr class="text-center">
-                <td>{{Nombre}}</td>
-                <td>{{Apellido_paterno}}</td>
-                <td>{{Apellido_materno}}</td>
-                <td class="td-actions text-center ">
-                                <div class="nav-tabs-wrapper">
-                                    <ul class="nav flex-column ">
-                                        <a class="nav-link" data-toggle="collapse" href="#{{_id}}">
-                                            <p> Acciones </p>
-                                        </a>
-                                        <div class="collapse" id={{_id}}> 
-                                            <li class="nav-item"> 
-                                                <a href="/clientes/documento/{{_id}}">Subir documento</a> 
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="/clientes/documento/{{_id}}">Documentos</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="/clientes/profile/{{_id}}">Perfil</a>
-                                            </li>
-                                        </div>
-                                    </ul>   
-                            </div>
-                </td>
-                <td>
-                    <button type="button" rel="tooltip" class="btn btn-danger">
-                        <a class="material-icons" href="/clientes/delete/{{_id}}">
-                            delete
-                        </a>
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-        {{/each}}
-    </table>
-</div>
+
+    <div class="card">
+        <div class="card-header card-header-danger card-header-icon">
+            <div class="card-icon">
+                <i class="material-icons">filter_list</i>
+            </div>
+            <h4 class="card-title">Listado de clientes activos</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <div class="material-datatables">
+                    <table style="width:100%" id="table_id" width="100%" class="display responsive nowrap table">
+                        <thead>
+                            <th></th>
+                            <th data-priority="1">Nombre</th>
+                            <th class="">Correo</th>
+                            <th data-priority="1">Telefono</th>
+                            <th>Monto total</th>
+                            <th>Monto restante</th>
+                            <th data-priority="1">Acciones</th>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+

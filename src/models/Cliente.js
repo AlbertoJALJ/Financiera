@@ -2,10 +2,12 @@ const mongoose = require('../libs/database')
 const Schema = mongoose.Schema;
 
 const ClienteSchema = new Schema({
+  username : String,
   Nombre : String,
   Apellido_paterno: String,
   Apellido_materno: String,
   Fecha_nacimiento: String,
+  Fechas_de_pago : Array,
   Curp : String,
   RFC : String,
   Email : String,
@@ -14,11 +16,6 @@ const ClienteSchema = new Schema({
     Direccion_completa : String,
     Coordenadas : String
   },
-  Garantia : [{
-    Nombre : String,
-    Tipo : String,
-    URL : String
-  }],
   Documento : [{
     Nombre : String,
     Tipo : String,

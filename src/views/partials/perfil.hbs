@@ -1,0 +1,173 @@
+<div class="col-md-8 mr-auto ml-auto">
+    <div class="card" id="informacion">
+        <h5 class="card-header ">Mi información</h5>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Correo electrónico</label>
+                        <input disabled value="{{cliente.Email}}" name="Email" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Teléfono</label>
+                        <input value="{{cliente.Telefono}}" name="Telefono" type="number"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Dirección</label>
+                        <input value="{{cliente.Direccion.Direccion_completa}}"
+                               name="Direccion_completa" type="text"
+                               class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Estado del préstamo</label>
+                        <input value="{{cliente.Prestamo.Status}}" name="Status" type="text"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Monto del préstamo</label>
+                        <input value="{{cliente.Prestamo.Monto_total}}" name="Monto_total" type="text"
+                               class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Porcentaje de interés</label>
+                        <input value="{{cliente.Prestamo.Interes}}" name="Interes" type="text"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Inicio del préstamo</label>
+                        <input value="{{cliente.Prestamo.Creacion}} " name="Creacion" type="text"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Plazo de pago</label>
+                        <input value="{{cliente.Prestamo.Duracion}}" name="Duracion" type="text"
+                               class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Nombre de usuario </label>
+                        <input disabled value="{{cliente.username}}" name="username"
+                               type="text"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Pago mensual </label>
+                        <input value="{{cliente.Prestamo.Pago_previsto}}" name="Pago_previsto"
+                               type="text"
+                               class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="bmd-label-floating">Monto restante</label>
+                        <input readonly value="{{cliente.Prestamo.Monto_restante}}" name="Monto_restante"
+                               type="text"
+                               class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<div class="row">
+    <div class="col-md-6 mr-auto ml-auto">
+        <div class="card">
+            <div class="card-header">
+                Lista de pagos
+            </div>
+            <div class="card-body">
+                {{#if pagos}}
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="">
+                        <th>
+                            #
+                        </th>
+                        <th>
+                            Fecha
+                        </th>
+                        <th>
+                            Monto
+                        </th>
+                        </thead>
+                        <tbody>
+                        {{#each pagos}}
+                            <tr>
+                                <td>
+                                    {{inc @index}}
+                                </td>
+                                <td>
+                                    {{Fecha}}
+                                </td>
+                                <td>
+                                    {{Monto}}
+                                </td>
+                            </tr>
+                        {{/each}}
+                        </tbody>
+                    </table>
+                {{else}}
+                    <h4 class="text-center">Sin pagos realizados aún</h4>
+                {{/if}}
+            </div>
+            </div>
+        </div>
+    </div>
+</div> <br>
+<div class="row">
+    <div class="col-md-6 mr-auto ml-auto">
+        <div class="card">
+            <div class="card-header">
+                Mis documentos
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre del documento</th>
+                        <th scope="col">Ver</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each documentos}}
+                        <tr>
+                            <th scope="row">{{inc @index}}</th>
+                            <td class="text-center">{{Tipo}}</td>
+                            <td><a type="button" target="_blank" href="/uploads/Documentos/{{Nombre}}"
+                                   class="btn btn-success">
+                                Ver
+                                <i class="material-icons">visibility</i>
+                            </a></td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,13 @@
 window.addEventListener("load", cargaPagina);
 
 function cargaPagina() {
-  const btn = document.getElementById("boton_modal").addEventListener("click", cambiaValores);
+  //window.history.replaceState({},'','aaa'); USAR EN PRODUCCION
+  try {
+    const btn = document.getElementById("boton_modal").addEventListener("click", cambiaValores);
+  } catch (e) {
+    return e
+  }
+  
 }
 function cambiaValores() {
   const monto = document.getElementById('monto_prestamo').value
